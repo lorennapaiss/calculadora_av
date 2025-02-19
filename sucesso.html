@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Processamento Concluído</title>
+    <style>
+        body {
+            background-image: url('/static/images/GrupoSALTA-3500.jpg'); /* Substitua pelo caminho da sua imagem */
+            background-size: cover; /* Faz a imagem cobrir toda a tela */
+            background-position: center; /* Centraliza a imagem */
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            flex-direction: column; /* Altera para coluna para empilhar logo e contêiner */
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .overlay {
+            position: fixed; /* Muda para fixed para garantir que ocupe toda a tela */
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.8); /* Cor branca com opacidade */
+            z-index: 1; /* Coloca a sobreposição acima da imagem de fundo */
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.9); /* Fundo branco levemente transparente */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            z-index: 2; /* Coloca o contêiner acima da sobreposição */
+            position: relative;
+            text-align: center; /* Centraliza o texto dentro do contêiner */
+        }
+
+        h2 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+            background-color: #00e175;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #00fa87;
+        }
+
+        .logo {
+            width: 300px; /* Ajuste o tamanho da logo aqui */
+            margin-bottom: 20px; /* Espaçamento abaixo da logo */
+            z-index: 2; /* Coloca a logo acima da sobreposição */
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div> <!-- Camada de sobreposição -->
+
+    <img src="/static/images/avaliação_valores4.png" alt="Logo do Grupo Salta" class="logo"> <!-- Substitua pelo caminho da sua logo -->
+    <div class="container">
+        <h2>Processamento Concluído!</h2>
+        <p>Seu arquivo está pronto para download.</p><br>
+        <!-- Corrigindo o link de download -->
+        <a href="{{ url_for('download', filename=filename) }}" download>Baixar Resultado</a>
+    </div>
+</body>
+</html>
